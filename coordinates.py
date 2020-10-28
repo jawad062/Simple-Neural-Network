@@ -4,7 +4,6 @@ from scipy.special import expit
 
 np.set_printoptions(formatter={'float': lambda x: "{0:0.3f}".format(x)})
 
-print("hocche")
 
 
 def prnt(X, s):
@@ -17,23 +16,23 @@ def prnt(X, s):
 #take X and y as input and output
 file = open("input.txt", "r")
 
-bal = file.readlines()
-m = len(bal)
+input = file.readlines()
+m = len(input)
 
 file.close()
 
 file = open("input.txt", "r")
-bal = file.readlines()
-print(len(bal))
+input = file.readlines()
+print(len(input))
 file.close()
-m = len(bal)
+m = len(input)
 X = np.zeros([m, 2])
 y = np.zeros([m, 1])
 
 # print(X)
 
 for i in range(m):
-    hmm = bal[i].split()
+    hmm = input[i].split()
     X[i, 0] = hmm[0]
     X[i, 1] = hmm[1]
     y[i] = hmm[2]
@@ -147,7 +146,7 @@ def check(theta1, theta2, X):
     a = np.vstack([new, a])
     hx = np.dot(theta2, a)
     hx = expit(hx)
-    prnt(hx, "hux of check")
+    #prnt(hx, "hux of check")
 
     l = X.shape[1]
 
